@@ -126,7 +126,7 @@ The website is built with a mobile-first approach and includes:
 
 - **Email**: 22kt1a0595@gmail.com
 - **GitHub**: [github.com/sasidharakurathi](https://github.com/sasidharakurathi)
-- **LinkedIn**: [linkedin.com/in/sasidhar-akurathi-689b43320/](https://www.linkedin.com/in/sasidhar-akurathi-689b43320/)
+- **LinkedIn**: [linkedin.com/in/sasidhar-akurathi/](https://www.linkedin.com/in/sasidhar-akurathi/)
 
 ## 🎓 Education & Experience
 
