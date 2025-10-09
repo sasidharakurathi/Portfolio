@@ -650,12 +650,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ===== ERROR HANDLING =====
 window.addEventListener('error', (event) => {
-    console.error('JavaScript Error:', event.error);
-    // In production, you might want to send this to an error tracking service
+    console.error('Log: JavaScript Error:', event.error);
 });
 
 window.addEventListener('unhandledrejection', (event) => {
-    console.error('Unhandled Promise Rejection:', event.reason);
+    console.error('Log: Unhandled Promise Rejection:', event.reason);
     event.preventDefault();
 });
 
