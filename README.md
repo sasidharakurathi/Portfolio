@@ -234,4 +234,4 @@ While this is a personal portfolio, suggestions and improvements are welcome:
 
 **Built with ❤️ by Akurathi Sasidhar**
 
-*Last updated: December 2024*
+*Last updated: October 2025*
