@@ -161,6 +161,7 @@ class AnimationManager {
             '.experience-item',
             '.skill-category',
             '.cert-card',
+            '.extracurriculars',
             '.contact-info',
             '.contact-form'
         ];
