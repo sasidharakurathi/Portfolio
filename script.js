@@ -41,7 +41,7 @@ class NavigationManager {
         this.mobileMenu = document.getElementById('mobile-menu');
         this.navLinks = document.querySelectorAll('.nav-link');
         this.sections = document.querySelectorAll('section');
-        
+
         this.init();
     }
 
@@ -81,7 +81,7 @@ class NavigationManager {
                 e.preventDefault();
                 const targetId = link.getAttribute('href');
                 const targetSection = document.querySelector(targetId);
-                
+
                 if (targetSection) {
                     const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
                     window.scrollTo({
@@ -96,12 +96,12 @@ class NavigationManager {
     setupScrollSpy() {
         window.addEventListener('scroll', () => {
             let current = '';
-            
+
             this.sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100;
                 const sectionHeight = section.clientHeight;
-                
-                if (window.pageYOffset >= sectionTop && 
+
+                if (window.pageYOffset >= sectionTop &&
                     window.pageYOffset < sectionTop + sectionHeight) {
                     current = section.getAttribute('id');
                 }
@@ -210,7 +210,7 @@ class AnimationManager {
             const text = heroSubtitle.textContent;
             heroSubtitle.textContent = '';
             heroSubtitle.style.borderRight = '2px solid var(--primary-color)';
-            
+
             let index = 0;
             const typeWriter = () => {
                 if (index < text.length) {
@@ -223,7 +223,7 @@ class AnimationManager {
                     }, 1000);
                 }
             };
-            
+
             setTimeout(typeWriter, 1000);
         }
     }
@@ -244,15 +244,15 @@ class ContactFormManager {
 
     async handleSubmit(e) {
         e.preventDefault();
-        
+
         const formData = new FormData(this.form);
         const submitButton = this.form.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
-        
+
         // Show loading state
         submitButton.textContent = 'Sending...';
         submitButton.disabled = true;
-        
+
         try {
             // Send email using EmailJS
             await this.sendEmailViaEmailJS(formData);
@@ -272,10 +272,10 @@ class ContactFormManager {
         const serviceId = 'service_0ykpmrv'; // Replace with your EmailJS service ID
         const templateId = 'template_4ykbkq9'; // Replace with your EmailJS template ID
         const publicKey = 'Hz-Scp_80pn7LvqaK'; // Replace with your EmailJS public key
-        
+
         // Convert FormData to regular object
         const formObject = Object.fromEntries(formData);
-        
+
         try {
             // Send email using EmailJS
             const response = await emailjs.send(
@@ -290,7 +290,7 @@ class ContactFormManager {
                 },
                 publicKey
             );
-            
+
             console.log('Email sent successfully:', response);
             return response;
         } catch (error) {
@@ -310,7 +310,7 @@ class ContactFormManager {
                 <i class="fas fa-times"></i>
             </button>
         `;
-        
+
         // Add styles
         Object.assign(notification.style, {
             position: 'fixed',
@@ -328,7 +328,7 @@ class ContactFormManager {
             maxWidth: '400px',
             animation: 'slideInRight 0.3s ease-out'
         });
-        
+
         // Add close button functionality
         const closeBtn = notification.querySelector('.notification-close');
         closeBtn.style.cssText = `
@@ -339,15 +339,15 @@ class ContactFormManager {
             margin-left: auto;
             padding: 0.25rem;
         `;
-        
+
         closeBtn.addEventListener('click', () => {
             notification.style.animation = 'slideOutRight 0.3s ease-out';
             setTimeout(() => notification.remove(), 300);
         });
-        
+
         // Add to page
         document.body.appendChild(notification);
-        
+
         // Auto remove after 5 seconds
         setTimeout(() => {
             if (document.body.contains(notification)) {
@@ -374,7 +374,7 @@ class Utils {
 
     static throttle(func, limit) {
         let inThrottle;
-        return function() {
+        return function () {
             const args = arguments;
             const context = this;
             if (!inThrottle) {
@@ -410,7 +410,7 @@ class PerformanceManager {
 
     setupLazyLoading() {
         const images = document.querySelectorAll('img[data-src]');
-        
+
         if ('IntersectionObserver' in window) {
             const imageObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -475,12 +475,12 @@ class AccessibilityManager {
     setupKeyboardNavigation() {
         // Enable keyboard navigation for custom elements
         const customButtons = document.querySelectorAll('.btn, .nav-link, .social-link');
-        
+
         customButtons.forEach(button => {
             if (!button.hasAttribute('tabindex')) {
                 button.setAttribute('tabindex', '0');
             }
-            
+
             button.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -529,7 +529,7 @@ class AccessibilityManager {
         skipLink.href = '#home';
         skipLink.textContent = 'Skip to main content';
         skipLink.className = 'skip-link';
-        
+
         Object.assign(skipLink.style, {
             position: 'absolute',
             top: '-40px',
@@ -541,15 +541,15 @@ class AccessibilityManager {
             borderRadius: '4px',
             zIndex: '1000'
         });
-        
+
         skipLink.addEventListener('focus', () => {
             skipLink.style.top = '6px';
         });
-        
+
         skipLink.addEventListener('blur', () => {
             skipLink.style.top = '-40px';
         });
-        
+
         document.body.insertBefore(skipLink, document.body.firstChild);
     }
 }
@@ -563,12 +563,12 @@ document.addEventListener('DOMContentLoaded', () => {
     new ContactFormManager();
     new PerformanceManager();
     new AccessibilityManager();
-    
+
     // Add loading complete class
     setTimeout(() => {
         document.body.classList.add('loaded');
     }, 100);
-    
+
     // Add custom CSS animations
     const style = document.createElement('style');
     style.textContent = `
@@ -647,6 +647,390 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(style);
+
+
+    // ===== CHAT UI MANAGEMENT =====
+    const renderer = new marked.Renderer();
+    renderer.link = function (linkData, title, text) {
+        let finalHref, finalTitle, finalText;
+        if (typeof linkData === 'object' && linkData !== null) {
+            finalHref = linkData.href;
+            finalTitle = linkData.title;
+            finalText = linkData.text;
+        } else {
+            finalHref = linkData;
+            finalTitle = title;
+            finalText = text;
+        }
+        return `<a href="${finalHref}" title="${finalTitle || ''}" target="_blank" rel="noopener noreferrer">${finalText}</a>`;
+    };
+
+    marked.setOptions({
+        renderer: renderer,
+        breaks: true,
+        gfm: true
+    });
+
+    const loadingPhrases = [
+        "Thinking",
+        "Analyzing",
+        "Processing",
+        "Computing",
+        "Reasoning",
+        "Synthesizing",
+        "Generating",
+        "Inferring",
+        "Parsing",
+        "Indexing",
+        "Querying",
+        "Optimizing"
+    ];
+
+    const STORAGE_KEY = 'sasidhar_portfolio_chat';
+    let isChatBusy = false;
+
+    // --- State Management ---
+    function getHistory() {
+        try {
+            return JSON.parse(sessionStorage.getItem(STORAGE_KEY)) || [];
+        } catch (e) {
+            return [];
+        }
+    }
+
+    function saveMessage(role, text, origin) {
+        const history = getHistory();
+        history.push({ role, text, origin });
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+    }
+
+    function getSessionID() {
+        const SESSION_KEY = 'chat_session_id';
+        let sessionID = sessionStorage.getItem(SESSION_KEY);
+        if (!sessionID) {
+            // Generate a simple alphanumeric ID
+            sessionID = Math.random().toString(36).substring(2, 15) + 
+                        Math.random().toString(36).substring(2, 15);
+            sessionStorage.setItem(SESSION_KEY, sessionID);
+        }
+        return sessionID;
+    }
+
+    // Initialize session ID on load
+    getSessionID();
+
+    // --- Elements - Mini Widget ---
+    const chatWidget = document.getElementById("chat-widget");
+    const chatToggle = document.getElementById("chat-toggle");
+    const chatClose = document.getElementById("chat-close");
+    const chatExpand = document.getElementById("chat-expand");
+    const chatInput = document.getElementById("chat-input");
+    const chatSend = document.getElementById("chat-send");
+    const chatMessages = document.getElementById("chat-messages");
+
+    // Elements - Full Modal
+    const fullChatModal = document.getElementById("full-chat-modal");
+    const fullChatClose = document.getElementById("full-chat-close");
+    const fullChatMinimize = document.getElementById("full-chat-minimize");
+    const fullChatInput = document.getElementById("full-chat-input");
+    const fullChatSend = document.getElementById("full-chat-send");
+    const fullChatMessages = document.getElementById("full-chat-messages");
+
+    // initially hidden
+    chatWidget?.classList.add("hidden");
+
+    // Global: Open all external links in new tab
+    document.querySelectorAll('a[href^="http"]').forEach(link => {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+    });
+
+    // Toggle Chat Controls (Lock UI while busy)
+    function toggleChatControls(enabled) {
+        const elements = [
+            chatInput, chatSend, chatExpand, chatClose,
+            fullChatInput, fullChatSend, fullChatMinimize, fullChatClose
+        ];
+        elements.forEach(el => {
+            if (el) {
+                el.disabled = !enabled;
+                el.style.opacity = enabled ? "1" : "0.5";
+                el.style.pointerEvents = enabled ? "all" : "none";
+            }
+        });
+    }
+
+    // Functions
+    function formatText(text) {
+        if (!text) return "";
+        let formatted = text.replace(/\\n/g, "\n").replace(/\\t/g, "    ");
+        return formatted.replace(/\d+\.\s\*\*(.*?)\*\*/g, "- **$1**");
+    }
+
+    // Pure UI: Add a message bubble to a specific container
+    function addMessage(text, type, container, isNew = true) {
+        const div = document.createElement("div");
+        div.className = `chat-msg ${type}`;
+
+        if (!isNew) {
+            // Restore historical content instantly
+            const contentDiv = document.createElement("div");
+            contentDiv.className = "chat-msg-content";
+            contentDiv.innerHTML = marked.parse(formatText(text));
+            div.appendChild(contentDiv);
+        } else {
+            div.textContent = text;
+        }
+
+        container.appendChild(div);
+        container.scrollTop = container.scrollHeight;
+        return div;
+    }
+
+    // Master Display Logic: Appends to correct containers based on origin
+    async function displayMessage(role, text, origin, isNew = true) {
+        const containers = [];
+        // Full Modal always gets everything
+        if (fullChatMessages) containers.push(fullChatMessages);
+        // Mini Widget only gets its own
+        if (origin === 'mini' && chatMessages) containers.push(chatMessages);
+
+        if (!isNew) {
+            // Bulk render history
+            containers.forEach(c => addMessage(text, role, c, false));
+        } else {
+            // Handle new messages (with safe typewriter)
+            const bubbles = containers.map(c => addMessage("", role, c, true));
+            if (role === 'bot') {
+                const htmlResponse = marked.parse(formatText(text));
+                // Run typewriter in parallel across all relevant containers
+                await Promise.all(bubbles.map(b => safeTypewriter(htmlResponse, b)));
+            } else {
+                // User messages are instant
+                bubbles.forEach(b => b.textContent = text);
+            }
+        }
+    }
+
+    function renderHistory() {
+        if (chatMessages) chatMessages.innerHTML = "";
+        if (fullChatMessages) fullChatMessages.innerHTML = "";
+
+        const history = getHistory();
+        history.forEach(msg => {
+            // displayMessage handles the filtering logic
+            displayMessage(msg.role, msg.text, msg.origin, false);
+        });
+    }
+
+
+
+    // Advanced Typewriter that handles HTML tags correctly
+    async function safeTypewriter(html, container) {
+        // Clear initial text (e.g., placeholder in container)
+        container.textContent = "";
+
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = html;
+
+        const botMsgContent = document.createElement("div");
+        botMsgContent.className = "chat-msg-content";
+        container.appendChild(botMsgContent);
+
+        // Dynamic timing: ~12ms per char, capped between 1.5s and 6s for optimal UX
+        const textContent = tempDiv.textContent || "";
+        const totalChars = textContent.length || 1;
+        const targetDuration = Math.min(10000, Math.max(1500, totalChars * 12));
+        const tickDelay = 15; // Fast 15ms interval for letters
+        const totalTicks = targetDuration / tickDelay;
+        const charsPerTick = Math.ceil(totalChars / totalTicks);
+
+        async function processNode(node, target) {
+            if (node.nodeType === Node.TEXT_NODE) {
+                const text = node.textContent;
+                let i = 0;
+                while (i < text.length) {
+                    // Smart chunking: ensure we don't break a word mid-tick
+                    let end = i + charsPerTick;
+                    
+                    // If we're ending in the middle of a word, extend to the next space
+                    if (end < text.length && !/\s/.test(text[end])) {
+                        const nextSpace = text.indexOf(' ', end);
+                        if (nextSpace !== -1) {
+                            end = nextSpace;
+                        } else {
+                            end = text.length; // No more spaces, take the rest
+                        }
+                    }
+
+                    const chunk = text.slice(i, end);
+                    const span = document.createElement("span");
+                    span.className = "word-reveal";
+                    span.textContent = chunk;
+                    target.appendChild(span);
+                    i = end;
+
+                    const scrollContainer = container.closest('#chat-messages') || container.closest('#full-chat-messages');
+                    if (scrollContainer) {
+                        const threshold = 50; // Increased for smooth scroll tolerance
+                        const isAtBottom = scrollContainer.scrollHeight - scrollContainer.scrollTop <= scrollContainer.clientHeight + threshold;
+                        if (isAtBottom) {
+                            scrollContainer.scrollTop = scrollContainer.scrollHeight;
+                        }
+                    }
+
+                    await new Promise(resolve => setTimeout(resolve, tickDelay));
+                }
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                const element = document.createElement(node.tagName);
+                Array.from(node.attributes).forEach(attr => element.setAttribute(attr.name, attr.value));
+
+                // Append element to current target
+                target.appendChild(element);
+
+                // Recursively process children into the NEW element
+                for (const child of Array.from(node.childNodes)) {
+                    await processNode(child, element);
+                }
+            }
+        }
+
+        const nodes = Array.from(tempDiv.childNodes);
+        for (const node of nodes) {
+            await processNode(node, botMsgContent);
+        }
+    }
+
+    function startLoading(container) {
+        const phrase = loadingPhrases[Math.floor(Math.random() * loadingPhrases.length)];
+        const botMsg = addMessage(phrase, "bot", container);
+        const dotSpan = document.createElement("span");
+        dotSpan.className = "loading-dots";
+        botMsg.appendChild(dotSpan);
+
+        let dotCount = 0;
+        const interval = setInterval(() => {
+            dotCount = (dotCount + 1) % 4;
+            dotSpan.textContent = ".".repeat(dotCount);
+        }, 400);
+
+        return {
+            stop: () => {
+                clearInterval(interval);
+                botMsg.remove();
+            }
+        };
+    }
+
+    async function sendMessage(isMini) {
+        if (isChatBusy) return;
+
+        const input = isMini ? chatInput : fullChatInput;
+        const origin = isMini ? 'mini' : 'full';
+        const query = input.value.trim();
+
+        if (!query) return;
+
+        isChatBusy = true;
+        toggleChatControls(false);
+
+        // 1. Save and Display User Message
+        saveMessage('user', query, origin);
+        await displayMessage('user', query, origin, true);
+
+        input.value = "";
+        input.blur();
+
+        // Start premium loading animation (in primary container)
+        const activeContainer = isMini ? chatMessages : fullChatMessages;
+        const loader = startLoading(activeContainer);
+
+        try {
+            const response = await fetch("https://sasidhar-portfolio-ai.onrender.com/api/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ 
+                    query, 
+                    is_mini_widget: isMini,
+                    session_id: getSessionID()
+                })
+            });
+
+            if (!response.ok) throw new Error("API Connection Failed");
+
+            const data = await response.json();
+
+            // Stop loader
+            loader.stop();
+
+            // 2. Save and Display AI Response
+            saveMessage('bot', data.response, origin);
+            await displayMessage('bot', data.response, origin, true);
+
+        } catch (error) {
+            console.error("Chat Error:", error);
+            if (typeof loader !== 'undefined') loader.stop();
+            const errorMsg = error.message === "API Connection Failed"
+                ? "I'm currently unable to connect to my AI server. Please try again later."
+                : `UI Error: ${error.message}. Please refresh.`;
+            addMessage(errorMsg, "bot", activeContainer);
+        } finally {
+            isChatBusy = false;
+            toggleChatControls(true);
+            if (chatMessages) chatMessages.scrollTop = chatMessages.scrollHeight;
+            if (fullChatMessages) fullChatMessages.scrollTop = fullChatMessages.scrollHeight;
+        }
+    }
+
+    // Initialization
+    renderHistory();
+
+    // Event Listeners - Mini Widget
+    chatSend?.addEventListener("click", () => sendMessage(true));
+    chatInput?.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendMessage(true);
+    });
+
+    chatToggle?.addEventListener("click", () => {
+        chatWidget.classList.remove("hidden");
+        chatToggle.classList.add("hidden");
+    });
+
+    chatClose?.addEventListener("click", () => {
+        chatWidget.classList.add("hidden");
+        chatToggle.classList.remove("hidden");
+    });
+
+    chatExpand?.addEventListener("click", () => {
+        if (isChatBusy) return;
+        chatWidget.classList.add("hidden");
+        fullChatModal.classList.remove("modal-hidden");
+        document.body.classList.add("modal-open");
+        // Ensure scroll positions are correct after switching
+        if (fullChatMessages) fullChatMessages.scrollTop = fullChatMessages.scrollHeight;
+    });
+
+    // Event Listeners - Full Modal
+    fullChatSend?.addEventListener("click", () => sendMessage(false));
+    fullChatInput?.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendMessage(false);
+    });
+
+    fullChatMinimize?.addEventListener("click", () => {
+        if (isChatBusy) return;
+        fullChatModal.classList.add("modal-hidden");
+        chatWidget.classList.remove("hidden");
+        document.body.classList.remove("modal-open");
+        // Ensure scroll positions are correct after switching
+        if (chatMessages) chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
+
+    fullChatClose?.addEventListener("click", () => {
+        fullChatModal.classList.add("modal-hidden");
+        chatToggle.classList.remove("hidden");
+        document.body.classList.remove("modal-open");
+    });
+
 });
 
 // ===== ERROR HANDLING =====
@@ -671,3 +1055,5 @@ if (typeof module !== 'undefined' && module.exports) {
         AccessibilityManager
     };
 }
+
+
