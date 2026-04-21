@@ -709,8 +709,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let sessionID = sessionStorage.getItem(SESSION_KEY);
         if (!sessionID) {
             // Generate a simple alphanumeric ID
-            sessionID = Math.random().toString(36).substring(2, 15) + 
-                        Math.random().toString(36).substring(2, 15);
+            sessionID = Math.random().toString(36).substring(2, 15) +
+                Math.random().toString(36).substring(2, 15);
             sessionStorage.setItem(SESSION_KEY, sessionID);
         }
         return sessionID;
@@ -852,7 +852,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 while (i < text.length) {
                     // Smart chunking: ensure we don't break a word mid-tick
                     let end = i + charsPerTick;
-                    
+
                     // If we're ending in the middle of a word, extend to the next space
                     if (end < text.length && !/\s/.test(text[end])) {
                         const nextSpace = text.indexOf(' ', end);
@@ -946,11 +946,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const loader = startLoading(activeContainer);
 
         try {
-            const response = await fetch("http://98.70.29.135:8000/api/chat", {
+            const response = await fetch("/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ 
-                    query, 
+                body: JSON.stringify({
+                    query,
                     is_mini_widget: isMini,
                     session_id: getSessionID()
                 })
