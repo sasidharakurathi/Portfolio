@@ -946,7 +946,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const loader = startLoading(activeContainer);
 
         try {
-            const response = await fetch("https://sasidhar-portfolio-ai-vercel.vercel.app/api/chat", {
+            const response = await fetch("http://98.70.29.135:8000/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ 
