@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Console - Sasidhar Akurathi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/console.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+  
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  
+  <div class="scanline"></div>
+
+  
+  <nav id="navbar">
+    <div class="nav-logo"><a href="index.html" class="plain-link">SA<span>.</span></a></div>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#certifications">Certs</a></li>
+      <li class="active"><a href="ai_console.html" class="ai-console-link" style="color:var(--accent-yellow,#f0c040)!important;">AI Console</a>
+      </li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="mailto:akurathisasidhar4@gmail.com" class="nav-cta">Hire Me</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </nav>
+
+  
+  <div class="console-layout">
+
+    
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">
+          <span class="icon"><i data-lucide="terminal" style="width:14px;height:14px;"></i></span> Quick Commands
+        </div>
+        <ul class="cmd-list">
+          <li onclick="runCommand('/projects')">/projects</li>
+          <li onclick="runCommand('/skills')">/skills</li>
+          <li onclick="runCommand('/experience')">/experience</li>
+          <li onclick="runCommand('/contact')">/contact</li>
+          <li onclick="runCommand('/clear')">/clear</li>
+          <li onclick="runCommand('/help')">/help</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">
+          <span class="icon"><i data-lucide="history" style="width:14px;height:14px;"></i></span> Recent Queries
+        </div>
+      </div>
+      <ul class="recent-list" id="recentList">
+        <li onclick="runCommand('Who is Sasidhar?')">Who is Sasidhar?</li>
+        <li onclick="runCommand('List latest projects')">List latest projects</li>
+        <li onclick="runCommand('ATS Tech stack details')">ATS Tech stack details</li>
+      </ul>
+
+      <div class="sidebar-spacer"></div>
+
+      <div class="sidebar-footer">
+        <div class="sys-row">
+          <span class="sys-label"><i data-lucide="cpu" style="width:12px;height:12px;margin-right:6px;opacity:0.7;"></i> System:</span>
+          <span class="sys-value">FastAPI/Gemini</span>
+        </div>
+        <div class="sys-row">
+          <span class="sys-label"><i data-lucide="box" style="width:12px;height:12px;margin-right:6px;opacity:0.7;"></i> Model:</span>
+          <span class="sys-value mono">sasidhar-ai-clone</span>
+        </div>
+        <div class="sys-row">
+          <span class="sys-label"><i data-lucide="activity" style="width:12px;height:12px;margin-right:6px;opacity:0.7;"></i> Status:</span>
+          <div class="status-indicator offline">
+            <div class="status-dot" id="statusDot"></div>
+            <span class="sys-value red glow-online" id="statusText">Offline</span>
+          </div>
+        </div>
+        <div class="sys-row">
+          <span class="sys-label"><i data-lucide="zap" style="width:12px;height:12px;margin-right:6px;opacity:0.7;"></i> Latency:</span>
+          <span class="sys-value" id="latencyDisplay">-</span>
+        </div>
+      </div>
+    </aside>
+
+    
+    <main class="main-panel">
+
+      
+      <div class="messages-area" id="messagesArea">
+
+        
+        <div class="msg-row">
+          <div class="msg-avatar bot-avatar"><i data-lucide="cpu" style="width:16px;height:16px;"></i></div>
+          <div class="msg-body">
+            <div class="msg-header">
+              <span class="msg-sender bot">SYSTEM_INIT</span>
+            </div>
+            <div class="system-bubble">
+              <p>Connection established to interactive AI clone.<br>
+                Type commands or ask questions naturally.<br>
+                For a list of commands, type <span style="color:var(--accent)">/help</span>.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <div class="panel-divider"></div>
+
+      
+      <div style="position:relative;">
+        <div class="slash-popover" id="slashPopover">
+          <div class="slash-item" onclick="runCommand('/projects')">/projects <span>List all projects</span></div>
+          <div class="slash-item" onclick="runCommand('/skills')">/skills <span>Tech stack details</span></div>
+          <div class="slash-item" onclick="runCommand('/experience')">/experience <span>Work history</span></div>
+          <div class="slash-item" onclick="runCommand('/contact')">/contact <span>Get in touch</span></div>
+          <div class="slash-item" onclick="runCommand('/clear')">/clear <span>Clear chat history</span></div>
+          <div class="slash-item" onclick="runCommand('/help')">/help <span>All commands</span></div>
+        </div>
+
+        <div class="console-input-row">
+          <span class="input-prompt"><i data-lucide="chevron-right" style="width:16px;height:16px;"></i></span>
+          <input type="text" class="console-input" id="consoleInput" placeholder="Enter Command or Message..."
+            autocomplete="off">
+          <button class="send-btn" id="sendBtn" onclick="sendConsoleMessage()"><i data-lucide="send" style="width:16px;height:16px;"></i></button>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="js/console.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>

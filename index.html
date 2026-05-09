@@ -2,718 +2,990 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akurathi Sasidhar - Backend Developer & Computer Science Student</title>
-    <meta name="description"
-        content="Final-year Computer Science student specializing in backend development, real-time systems, and AI-driven web applications.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-    <script type="text/javascript">
-        (function (c, l, a, r, i, t, y) {
-            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "tlt79fdbof");
-    </script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sasidhar Akurathi - AI Engineer & Backend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">Akurathi Sasidhar</a>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience" class="nav-link">Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#certifications" class="nav-link">Certifications</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#extracurriculars" class="nav-link">Extracurriculars</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <button class="theme-toggle" id="theme-toggle">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </li>
-            </ul>
-            <div class="nav-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        Hi, I'm <span class="highlight">Akurathi Sasidhar</span>
-                    </h1>
-                    <h2 class="hero-subtitle">AI Engineer & Full-stack Developer</h2>
-                    <p class="hero-description">
-                        Final-year Computer Science student specializing in <strong>FastAPI</strong>,
-                        <strong>LLM Orchestration</strong> with n8n/Google ADK, and cross-platform desktop
-                        development using <strong>Tauri</strong>. Passionate about building intelligent,
-                        scalable automation systems.
-                    </p>
-                    <div class="hero-cta">
-                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                        <a href="#projects" class="btn btn-secondary">View Projects</a>
-                    </div>
-                    <div class="social-links">
-                        <a href="mailto:22kt1a0595@gmail.com" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://github.com/sasidharakurathi" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/sasidhar-akurathi/" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- Removed profile-card section as requested -->
-            </div>
-        </div>
-    </section>
+  
+  <canvas id="neuralCanvas"
+    style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-3; background:#020408;"></canvas>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a passionate Computer Science student in my final year, with a strong focus on
-                        backend development and emerging technologies. My journey in programming began with
-                        Python and has evolved to encompass full-stack development, AI integration, and
-                        cybersecurity practices.
-                    </p>
-                    <p>
-                        Through internships at SwechaAP and Supraja Technologies, I've gained hands-on
-                        experience in DevOps practices, cybersecurity protocols, and educational technology
-                        development. I'm particularly interested in building scalable web applications that
-                        solve real-world problems.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>16+</h3>
-                            <p>Projects Completed</p>
-                        </div>
-                        <div class="stat">
-                            <h3>3</h3>
-                            <p>Internships</p>
-                        </div>
-                        <div class="stat">
-                            <h3>6+</h3>
-                            <p>Certifications</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2><br>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">RoboSwift</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/sasidharakurathi/RoboSwift" class="project-link"
-                                target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        A high-performance desktop GUI for the Windows robocopy engine. Features real-time
-                        stdout parsing, live telemetry HUD, and PID-level process cancellation for
-                        efficient file migration.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Tauri 2</span>
-                        <span class="tech-tag">Rust</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Tailwind CSS</span>
-                    </div>
-                </div>
+  
+  <nav id="navbar">
+    <div class="nav-logo"><a href="index.html" class="plain-link">SA<span>.</span></a></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="ai_console.html" class="ai-console-link" style="color:var(--accent-yellow,#f0c040)!important;">AI Console</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">VirtuHire-AI</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/sasidharakurathi/VirtuHire-AI" class="project-link"
-                                target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        End-to-end autonomous recruitment system. Automates candidate screening and
-                        interviewing using Google Gemini for question generation and YOLOv8 for
-                        real-time visual proctoring.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Django</span>
-                        <span class="tech-tag">Gemini</span>
-                        <span class="tech-tag">Whisper</span>
-                        <span class="tech-tag">YOLOv8</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Axon-File-Manager</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/sasidharakurathi/Axon-File-Manager" class="project-link"
-                                target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Sophisticated desktop file manager with a 'Neural Search' engine. Combines
-                        vector search (Qdrant) with keyword search (BM25) and AI re-ranking for
-                        context-aware retrieval.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Flet</span>
-                        <span class="tech-tag">Qdrant</span>
-                        <span class="tech-tag">HyDE</span>
-                        <span class="tech-tag">RRF</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">VenvDrop</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/sasidharakurathi/venvdrop" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Zero-dependency CLI for air-gapped Python deployment. Bundles environments into
-                        self-verifying archives and supports wireless LAN transfer via UDP multicast
-                        discovery.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">UDP Multicast</span>
-                        <span class="tech-tag">HTTP Streaming</span>
-                        <span class="tech-tag">SHA-256</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">ATS</h3>
-                        <div class="project-links">
-                            <a class="project-link" target="_blank" title="This repository is private">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Django-based Application Tracking System featuring LLM-powered resume analysis
-                        and biometric face-recognition authentication for secure recruiter access.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Django</span>
-                        <span class="tech-tag">Gemini</span>
-                        <span class="tech-tag">dlib</span>
-                        <span class="tech-tag">OpenCV</span>
-                        <span class="tech-tag">MySQL</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Repo-Scribe</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/sasidharakurathi/repo-scribe" class="project-link"
-                                target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        AI-powered VS Code extension for context-aware commit messages. Uses RAG to
-                        learn project conventions from documentation and generate professional git history.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">VS Code API</span>
-                        <span class="tech-tag">Gemini</span>
-                        <span class="tech-tag">RAG</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-timeline">
-
-
-                <div class="experience-item">
-                    <div class="experience-date">
-                        <span>2022 - 2026</span>
-                    </div>
-                    <div class="experience-content">
-                        <div class="company-logo">
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <h3 class="job-title">Project Intern</h3>
-                        <h4 class="company">InfoSpoke Integrated Solutions LLP</h4>
-                        <p class="job-description">
-                            Developed scalable backend software systems and optimized performance for existing services.
-                            Focused on designing production-grade API services and implementing scalable software
-                            architectures
-                            to handle high-load data processing.
-                        </p>
-                        <div class="job-skills">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">FastAPI</span>
-                            <span class="skill-tag">Django</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">REST APIs</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-date">
-                        <span>2022 - 2026</span>
-                    </div>
-                    <div class="experience-content">
-                        <div class="company-logo">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <h3 class="job-title">DevOps Intern</h3>
-                        <h4 class="company">Swecha AP</h4>
-                        <p class="job-description">
-                            Set up and maintained automated CI/CD pipelines and containerized applications using Docker.
-                            Managed infrastructure for EdTech platforms, utilizing AWS and Nginx to streamline
-                            deployment workflows and reduce manual intervention.
-                        </p>
-                        <div class="job-skills">
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">GitHub Actions</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">Nginx</span>
-                            <span class="skill-tag">Bash</span>
-                            <span class="skill-tag">Linux</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-date">
-                        <span>2022 - 2026</span>
-                    </div>
-                    <div class="experience-content">
-                        <div class="company-logo">
-                            <i class="fas fa-user-shield"></i>
-                        </div>
-                        <h3 class="job-title">Cybersecurity Intern</h3>
-                        <h4 class="company">Supraja Technologies</h4>
-                        <p class="job-description">
-                            Conducted comprehensive vulnerability assessments and penetration testing on target systems.
-                            Documented security weaknesses and recommended remediation strategies based on
-                            Zero-Trust security principles and best practices.
-                        </p>
-                        <div class="job-skills">
-                            <span class="skill-tag">Penetration Testing</span>
-                            <span class="skill-tag">Vulnerability Assessment</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">Network Security</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2><br>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-code"></i>
-                        Programming Languages
-                    </h3>
-                    <div class="skills-tags">
-                        <span class="concept-tag">Python</span>
-                        <span class="concept-tag">TypeScript</span>
-                        <span class="concept-tag">Rust</span>
-                        <span class="concept-tag">JavaScript</span>
-                        <span class="concept-tag">HTML/CSS</span>
-                        <span class="concept-tag">MySQL</span>
-                        <span class="concept-tag">PostgreSQL</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-layer-group"></i>
-                        Frameworks & Libraries
-                    </h3>
-                    <div class="skills-tags">
-                        <span class="concept-tag">FastAPI</span>
-                        <span class="concept-tag">Django</span>
-                        <span class="concept-tag">Tauri</span>
-                        <span class="concept-tag">Node.js</span>
-                        <span class="concept-tag">React</span>
-                        <span class="concept-tag">LangChain</span>
-                        <span class="concept-tag">OpenCV</span>
-                        <span class="concept-tag">PyTorch</span>
-                        <span class="concept-tag">Starlette</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-tools"></i>
-                        Tools & Technologies
-                    </h3>
-                    <div class="skills-tags">
-                        <span class="concept-tag">n8n</span>
-                        <span class="concept-tag">Google ADK</span>
-                        <span class="concept-tag">Docker</span>
-                        <span class="concept-tag">Git</span>
-                        <span class="concept-tag">AWS</span>
-                        <span class="concept-tag">Linux</span>
-                        <span class="concept-tag">Nginx</span>
-                        <span class="concept-tag">Postman</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-brain"></i>
-                        AI & Core Concepts
-                    </h3>
-                    <div class="skills-tags">
-                        <span class="concept-tag">LLM Orchestration</span>
-                        <span class="concept-tag">Vector Databases</span>
-                        <span class="concept-tag">RAG Systems</span>
-                        <span class="concept-tag">Multi-Agent Tooling</span>
-                        <span class="concept-tag">System Design</span>
-                        <span class="concept-tag">API Development</span>
-                        <span class="concept-tag">Cybersecurity</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2><br>
-            <div class="certifications-grid">
-                <div class="cert-card" id="python-programming-cert">
-                    <div class="cert-icon">
-                        <i class="fab fa-python"></i>
-                    </div>
-                    <h3 class="cert-title"><a
-                            href="https://pscmr.codetantra.com/cert/certificate.jsp?certId=CT563-uypVU4T-cet"
-                            target="_blank">Python Programming</a></h3>
-                    <p class="cert-issuer">Code Tantra</p>
-                    <p class="cert-description">
-                        Comprehensive Python programming certification covering advanced concepts,
-                        data structures, and object-oriented programming.
-                    </p>
-                </div>
-
-                <div class="cert-card" id="aws-cloud-cert">
-                    <div class="cert-icon">
-                        <i class="fab fa-aws"></i>
-                    </div>
-                    <h3 class="cert-title"><a
-                            href="https://1drv.ms/b/c/d5cbd02d34f146e2/ETLCPv7zjwpGlomsF_tsx2kB4epOKT_6TBI7CygBX-2SOA?e=SSItwk"
-                            target="_blank">Introduction to AWS Cloud: Builder Labs Learning Plan</a></h3>
-                    <p class="cert-issuer">Amazon Web Services</p>
-                    <p class="cert-description">
-                        Introduction to AWS Cloud: Builder Labs Learning Plan Completion Certificate - AWS Training &
-                        Certification
-                    </p>
-                </div>
-
-                <div class="cert-card" id="swecha-intern-cert">
-                    <div class="cert-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3 class="cert-title"><a
-                            href="https://1drv.ms/b/c/d5cbd02d34f146e2/EeJG8TQt0MsggNVXGgAAAAABCglFujsa-M8bL7MPsLalmw?e=aXl1xS"
-                            target="_blank">Web Development Internship</a></h3>
-                    <p class="cert-issuer">Swecha</p>
-                    <p class="cert-description">
-                        Completed intensive web development training program focusing on full-stack
-                        development and modern web technologies.
-                    </p>
-                </div>
-
-                <div class="cert-card" id="supraja-tech-intern-cert">
-                    <div class="cert-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="cert-title"><a
-                            href="https://1drv.ms/b/c/d5cbd02d34f146e2/EeJG8TQt0MsggNW-HgAAAAAB3sMdPZQE9KM4Mz171PZ__g?e=PtIkX6"
-                            target="_blank">Cybersecurity Internship</a></h3>
-                    <p class="cert-issuer">Supraja Technologies</p>
-                    <p class="cert-description">
-                        Gained expertise in cybersecurity practices, penetration testing, and
-                        security policy implementation through hands-on experience.
-                    </p>
-                </div>
-
-                <div class="cert-card" id="e-yantra-cert">
-                    <div class="cert-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3 class="cert-title"><a
-                            href="https://1drv.ms/b/c/d5cbd02d34f146e2/EXfSIFqQS_JMhu0NwNk6EQMBKRTNjq5JHMF0Xr2hiSn7fA?e=xnhX1a"
-                            target="_blank">Eyantra Competition</a></h3>
-                    <p class="cert-issuer">IT Bombay</p>
-                    <p class="cert-description">
-                        Qualified to the 2nd stage in the Eyantra Competition conducted by IIT Bombay 2024.
-                    </p>
-                </div>
-
-
-                <div class="cert-card" id="cyberace-hackathon-cert">
-                    <div class="cert-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="cert-title"><a
-                            href="https://1drv.ms/b/c/d5cbd02d34f146e2/EeJG8TQt0MsggNVeGgAAAAABXjj2ydsyVfass3GGx2XMDQ?e=9RTLtl"
-                            target="_blank">Cyberace hackathon</a></h3>
-                    <p class="cert-issuer">Supraja Technologies</p>
-                    <p class="cert-description">
-                        Excellence Certificate in Cyberace hackathon conducted by Supraja Technologies.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-
-    <!-- Extracurriculars Section -->
-    <section id="extracurriculars" class="extracurriculars">
-        <div class="container">
-            <h2 class="section-title">Extracurriculars</h2><br>
-            <div class="certifications-grid extracurriculars-grid">
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <h3 class="cert-title">Techfest Competitions</h3>
-                    <p class="cert-issuer">IIT Bombay</p>
-                    <p class="cert-description">Participated in CodeDecode and RowBoatics competitions at Techfest 2024,
-                        IIT Bombay.</p>
-                </div>
-
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="cert-title">Cyber Security Workshop</h3>
-                    <p class="cert-issuer">Supraja Technologies</p>
-                    <p class="cert-description">Participated in the Cyber Security Workshop conducted by Supraja
-                        Technologies.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2><br>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Work Together</h3>
-                    <p>
-                        I'm always interested in hearing about new opportunities and projects.
-                        Whether you're a company looking for a developer or you're a fellow
-                        developer wanting to collaborate, feel free to reach out!
-                    </p>
-
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Email</h4>
-                                <a href="mailto:22kt1a0595@gmail.com">22kt1a0595@gmail.com</a>
-                            </div>
-                        </div>
-
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>GitHub</h4>
-                                <a href="https://github.com/sasidharakurathi"
-                                    target="_blank">github.com/sasidharakurathi</a>
-                            </div>
-                        </div>
-
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fab fa-linkedin"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/sasidhar-akurathi/"
-                                    target="_blank">linkedin.com/in/sasidhar-akurathi/</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-form">
-                    <form class="form" id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2025 Akurathi Sasidhar. All rights reserved.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#home" class="footer-link">Back to Top</a>
-                    <a href="mailto:22kt1a0595@gmail.com" class="footer-link">Contact</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-
-    <div id="chat-widget">
-        <div id="chat-header">
-            <div class="chat-header-left">
-                <i class="fas fa-robot"></i>
-                <span>Sasidhar AI Assistant</span>
-            </div>
-            <div class="chat-header-actions">
-                <button id="chat-expand" title="Expand to Full Chat">
-                    <i class="fas fa-expand-alt"></i>
-                </button>
-                <button id="chat-close">✕</button>
-            </div>
-        </div>
-
-        <div id="chat-messages"></div>
-
-        <div id="chat-input-area">
-            <input id="chat-input" placeholder="Ask something..." autocomplete="off" />
-            <button id="chat-send">Send</button>
-        </div>
+    <div class="nav-right">
+      <a href="mailto:akurathisasidhar4@gmail.com" class="nav-cta">Hire Me</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+        <i data-lucide="menu"></i>
+      </button>
     </div>
-    <button id="chat-toggle">
-        <i class="fas fa-comment-dots"></i>
-    </button>
+  </nav>
 
-    <!-- Full Screen Chat Modal -->
-    <div id="full-chat-modal" class="modal-hidden">
-        <div class="full-chat-container">
-            <div id="full-chat-header">
-                <div class="full-chat-title">
-                    <i class="fas fa-robot"></i>
-                    <span>Sasidhar AI Assistant</span>
-                </div>
-                <div class="full-chat-actions">
-                    <button id="full-chat-minimize" title="Minimize to Widget">
-                        <i class="fas fa-compress-alt"></i>
-                    </button>
-                    <button id="full-chat-close" class="close-btn">✕</button>
-                </div>
-            </div>
+  
+  <section id="hero">
+    
+    <div class="hero-orb1"></div>
+    <div class="hero-orb2"></div>
 
-            <div id="full-chat-messages"></div>
-
-            <div id="full-chat-input-area">
-                <input id="full-chat-input" placeholder="Ask something..." autocomplete="off">
-                <button id="full-chat-send">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
+    <div class="hero-content">
+      <div class="hero-tag">Full-time Associate Software Engineer · Hyderabad, India</div>
+      <h1 class="hero-name glitch" data-text="Sasidhar">
+        Sasidhar<br>
+        <span class="line2">Akurathi</span>
+      </h1>
+      <p class="hero-headline">// Building Scalable FastAPI & Django Backends · Orchestrating LLM Agents · AI Automation
+        & DevOps</p>
+      <p class="hero-desc">AI-focused software engineer crafting intelligent systems - from autonomous recruiters to
+        desktop AI assistants. B.Tech CSE · PSCMR · 2026.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-ghost">Get In Touch</a>
+        <a href="https://github.com/sasidharakurathi" target="_blank" class="btn-ghost" title="GitHub"
+          style="padding: 14px 18px;">
+          <i data-lucide="github" style="width:18px;height:18px;"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/sasidhar-akurathi" target="_blank" class="btn-ghost" title="LinkedIn"
+          style="padding: 14px 18px;">
+          <i data-lucide="linkedin" style="width:18px;height:18px;"></i>
+        </a>
+      </div>
     </div>
 
+    <div class="hero-stats">
+      <div class="stat-item reveal">
+        <i data-lucide="layers" class="stat-icon"></i>
+        <span class="stat-num">15<span>+</span></span>
+        <div class="stat-label">Projects Built</div>
+      </div>
+      <div class="stat-item reveal">
+        <i data-lucide="user-check" class="stat-icon"></i>
+        <span class="stat-num">3</span>
+        <div class="stat-label">Internships</div>
+      </div>
+      <div class="stat-item reveal">
+        <i data-lucide="star" class="stat-icon"></i>
+        <span class="stat-num">8.5</span>
+        <div class="stat-label">CGPA</div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <i data-lucide="mouse" style="width:16px;height:16px;margin-bottom:8px;opacity:0.6;"></i>
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item">FastAPI</span>
+      <span class="marquee-item">Django</span>
+      <span class="marquee-item">LLM Orchestration</span>
+      <span class="marquee-item">RAG Systems</span>
+      <span class="marquee-item">Computer Vision</span>
+      <span class="marquee-item">Tauri + Rust</span>
+      <span class="marquee-item">n8n Automation</span>
+      <span class="marquee-item">Google ADK</span>
+      <span class="marquee-item">Docker</span>
+      <span class="marquee-item">Multi-Agent AI</span>
+      <span class="marquee-item">PyTorch</span>
+      <span class="marquee-item">WebRTC</span>
+      
+      <span class="marquee-item">FastAPI</span>
+      <span class="marquee-item">Django</span>
+      <span class="marquee-item">LLM Orchestration</span>
+      <span class="marquee-item">RAG Systems</span>
+      <span class="marquee-item">Computer Vision</span>
+      <span class="marquee-item">Tauri + Rust</span>
+      <span class="marquee-item">n8n Automation</span>
+      <span class="marquee-item">Google ADK</span>
+      <span class="marquee-item">Docker</span>
+      <span class="marquee-item">Multi-Agent AI</span>
+      <span class="marquee-item">PyTorch</span>
+      <span class="marquee-item">WebRTC</span>
+    </div>
+  </div>
+
+  
+  <section id="about">
+    <div class="section-label reveal">About</div>
+    <div class="section-title reveal">Building systems that<br>think & scale.</div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>A dynamic software engineer with a strong focus on Artificial Intelligence and full-stack development. I
+          build end-to-end intelligent systems - from autonomous AI recruitment platforms to desktop utilities and LLM
+          agent pipelines.</p>
+        <p>Experienced in Django, FastAPI, Python, TypeScript, and Rust. I've shipped production systems involving
+          computer vision, real-time proctoring, voice interfaces, and multi-agent orchestration.</p>
+        <p>Currently an Associate Software Engineer at InfoSpoke Integrated Solutions, working on scalable backend
+          services in Python/FastAPI while completing my B.Tech CSE at PSCMR (2022-2026, CGPA: 8.5).</p>
+        <div class="about-philosophy">
+          <p>"Always help the people in need, because I know how it feels to figure out things alone."</p>
+          <cite>- Sasidhar's philosophy</cite>
+        </div>
+      </div>
+
+      <div class="about-cards reveal">
+        
+        <div class="info-card">
+          <div class="info-card-header">
+            <i data-lucide="graduation-cap" class="info-icon"></i>
+            <div class="info-card-label">Education</div>
+          </div>
+          <div class="info-card-value">B.Tech CSE · PSCMR College · 2022-2026 · CGPA 8.5</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header">
+            <i data-lucide="mail" class="info-icon"></i>
+            <div class="info-card-label">Email</div>
+          </div>
+          <div class="info-card-value"><a href="mailto:akurathisasidhar4@gmail.com">akurathisasidhar4@gmail.com</a>
+          </div>
+        </div>
+
+        
+        <div class="info-card">
+          <div class="info-card-header">
+            <i data-lucide="briefcase" class="info-icon"></i>
+            <div class="info-card-label">Current Role</div>
+          </div>
+          <div class="info-card-value">Associate Software Engineer @ InfoSpoke</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="info-icon">
+              <path
+                d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+              </path>
+            </svg>
+            <div class="info-card-label">GitHub</div>
+          </div>
+          <div class="info-card-value">
+            <a href="https://github.com/sasidharakurathi" target="_blank">github.com/sasidharakurathi</a>
+          </div>
+        </div>
+
+        
+        <div class="info-card">
+          <div class="info-card-header">
+            <i data-lucide="map-pin" class="info-icon"></i>
+            <div class="info-card-label">Location</div>
+          </div>
+          <div class="info-card-value">Hyderabad, Telangana, India</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="info-icon" style="opacity: 1;">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <circle cx="24" cy="24" r="20" fill="#0077B5"></circle>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M18.7747 14.2839C18.7747 15.529 17.8267 16.5366 16.3442 16.5366C14.9194 16.5366 13.9713 15.529 14.0007 14.2839C13.9713 12.9783 14.9193 12 16.3726 12C17.8267 12 18.7463 12.9783 18.7747 14.2839ZM14.1199 32.8191V18.3162H18.6271V32.8181H14.1199V32.8191Z"
+                  fill="white"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M22.2393 22.9446C22.2393 21.1357 22.1797 19.5935 22.1201 18.3182H26.0351L26.2432 20.305H26.3322C26.9254 19.3854 28.4079 17.9927 30.8101 17.9927C33.7752 17.9927 35.9995 19.9502 35.9995 24.219V32.821H31.4922V24.7838C31.4922 22.9144 30.8404 21.6399 29.2093 21.6399C27.9633 21.6399 27.2224 22.4999 26.9263 23.3297C26.8071 23.6268 26.7484 24.0412 26.7484 24.4574V32.821H22.2411V22.9446H22.2393Z"
+                  fill="white"></path>
+              </g>
+            </svg>
+            <div class="info-card-label">LinkedIn</div>
+          </div>
+          <div class="info-card-value">
+            <a href="https://www.linkedin.com/in/sasidhar-akurathi"
+              target="_blank">linkedin.com/in/sasidhar-akurathi</a>
+          </div>
+        </div>
+
+        
+        <div class="info-card full-width">
+          <div class="info-card-header">
+            <i data-lucide="target" class="info-icon"></i>
+            <div class="info-card-label">Career Goal</div>
+          </div>
+          <div class="info-card-value" style="font-size:1rem; color: var(--text-dim); font-weight: 400;">AI & Full Stack 
+            Engineer → Mentor others in AI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <div id="skills" style="padding:100px 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 48px;">
+      <div class="section-label reveal">Technical Stack</div>
+      <div class="section-title reveal">What I work with</div>
+      <div class="skills-grid">
+        <div class="skill-category reveal">
+          <div class="skill-cat-title"><i data-lucide="code-2"></i> Languages</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Rust</span>
+            <span class="skill-tag">Dart</span>
+            <span class="skill-tag">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <div class="skill-cat-title"><i data-lucide="layout"></i> Backend Frameworks</div>
+          <div class="skill-tags">
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Django</span>
+            <span class="skill-tag">Django REST</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express</span>
+            <span class="skill-tag">Starlette</span>
+            <span class="skill-tag">Pydantic</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <div class="skill-cat-title"><i data-lucide="database"></i> Databases</div>
+          <div class="skill-tags">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">SQLite</span>
+            <span class="skill-tag">Qdrant</span>
+            <span class="skill-tag">ChromaDB</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <div class="skill-cat-title"><i data-lucide="brain"></i> AI / ML</div>
+          <div class="skill-tags">
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">LLM Orchestration</span>
+            <span class="skill-tag">RAG Systems</span>
+            <span class="skill-tag">Multi-Agent</span>
+            <span class="skill-tag">Computer Vision</span>
+            <span class="skill-tag">Google ADK</span>
+            <span class="skill-tag">Gemini API</span>
+            <span class="skill-tag">Whisper</span>
+            <span class="skill-tag">MediaPipe</span>
+            <span class="skill-tag">YOLOv8</span>
+            <span class="skill-tag">DeepFace</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <div class="skill-cat-title"><i data-lucide="terminal"></i> DevOps & Tools</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Nginx</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Bash</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">n8n</span>
+            <span class="skill-tag">Postman</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <div class="skill-cat-title"><i data-lucide="shield-check"></i> Security</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Penetration Testing</span>
+            <span class="skill-tag">Vulnerability Assessment</span>
+            <span class="skill-tag">Zero-Trust Security</span>
+            <span class="skill-tag">SHA-256</span>
+            <span class="skill-tag">Biometric Auth</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <section id="experience">
+    <div class="section-label reveal">Career</div>
+    <div class="section-title reveal">Experience</div>
+
+    <div class="experience-timeline">
+      <div class="exp-item">
+        <div class="exp-date"><i data-lucide="calendar"></i> May 2026 - Present</div>
+        <div class="exp-role"><i data-lucide="briefcase"></i> Associate Software Engineer</div>
+        <div class="exp-company"><i data-lucide="building-2"></i> InfoSpoke Integrated Solutions LLP · Full-time</div>
+        <ul class="exp-work">
+          <li>Backend development and maintenance of production services</li>
+          <li>Ownership of API features, bug fixes, and performance improvements</li>
+          <li>Participation in deployments and monitoring efforts</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Python</span>
+          <span class="exp-tag">FastAPI</span>
+          <span class="exp-tag">Django</span>
+          <span class="exp-tag">PostgreSQL</span>
+          <span class="exp-tag">AI</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date"><i data-lucide="calendar"></i> Jan 2026 - Apr 2026</div>
+        <div class="exp-role"><i data-lucide="briefcase"></i> Project Intern - Backend Developer</div>
+        <div class="exp-company"><i data-lucide="building-2"></i> InfoSpoke Integrated Solutions LLP</div>
+        <ul class="exp-work">
+          <li>Backend development for scalable software systems</li>
+          <li>Performance optimization of existing services</li>
+          <li>Designed and implemented scalable software architecture</li>
+          <li>Contributed to production-grade API services</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">FastAPI</span>
+          <span class="exp-tag">Django</span>
+          <span class="exp-tag">REST APIs</span>
+          <span class="exp-tag">PostgreSQL</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date"><i data-lucide="calendar"></i> Jun 2024 - Jul 2024</div>
+        <div class="exp-role"><i data-lucide="briefcase"></i> DevOps Intern</div>
+        <div class="exp-company"><i data-lucide="building-2"></i> Swecha AP</div>
+        <ul class="exp-work">
+          <li>Set up and maintained CI/CD pipelines for EdTech platform</li>
+          <li>Containerized applications using Docker with multi-container orchestration</li>
+          <li>Automated deployment workflows reducing manual intervention</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Docker</span>
+          <span class="exp-tag">GitHub Actions</span>
+          <span class="exp-tag">AWS</span>
+          <span class="exp-tag">Nginx</span>
+          <span class="exp-tag">Linux</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date"><i data-lucide="calendar"></i> May 2024 - Aug 2024</div>
+        <div class="exp-role"><i data-lucide="briefcase"></i> Cybersecurity Intern</div>
+        <div class="exp-company"><i data-lucide="building-2"></i> Supraja Technologies</div>
+        <ul class="exp-work">
+          <li>Conducted vulnerability assessments on target systems</li>
+          <li>Performed penetration testing to identify security weaknesses</li>
+          <li>Documented findings and recommended remediation strategies</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Penetration Testing</span>
+          <span class="exp-tag">Vulnerability Assessment</span>
+          <span class="exp-tag">Linux</span>
+          <span class="exp-tag">Network Security</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="projects" style="max-width:100%;width:100%;background:var(--surface);padding:100px 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 48px;">
+      <div class="section-label reveal">Portfolio</div>
+      <div class="section-title reveal">Public Projects I've built</div>
+
+      <div class="projects-filter reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai">AI/ML</button>
+        <button class="filter-btn" data-filter="backend">Backend</button>
+        <button class="filter-btn" data-filter="desktop">Desktop</button>
+        <button class="filter-btn" data-filter="fullstack">Full-stack</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+
+        <div class="project-card reveal featured" data-category="ai fullstack">
+          <div class="project-body">
+            <div class="project-status status-completed">Completed</div>
+            <div class="project-icon"><i data-lucide="bot"></i></div>
+            <div class="project-title">VirtuHire AI</div>
+            <div class="project-desc">End-to-end autonomous recruitment system - AI question generation, OpenAI Whisper
+              transcription, real-time YOLOv8 & MediaPipe proctoring, bulk candidate management, and automated PDF
+              reports.</div>
+            <div class="project-stack">
+              <span class="stack-tag">Django 5</span><span class="stack-tag">Google Gemini</span><span
+                class="stack-tag">Whisper</span><span class="stack-tag">YOLOv8</span><span
+                class="stack-tag">MediaPipe</span><span class="stack-tag">Edge TTS</span><span class="stack-tag">Python
+                3.11</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/sasidharakurathi/VirtuHire-AI-Developement" target="_blank"
+                class="project-link">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                  </path>
+                </svg>
+                <i data-lucide="github"></i> GitHub
+              </a>
+            </div>
+          </div>
+          <div class="project-features-container">
+            <div class="project-features"
+              style="background:var(--bg);border:1px solid var(--border);padding:20px;height:100%;display:flex;flex-direction:column;gap:12px;">
+              <div
+                style="font-family:var(--font-mono);font-size:0.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;">
+                Key Features</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div
+                  style="font-size:0.8rem;color:var(--text-dim);padding:8px;border-left:2px solid var(--accent);background:rgba(99,179,237,0.03);display:flex;align-items:center;gap:8px;">
+                  <i data-lucide="mic" style="width:14px;height:14px;color:var(--accent);"></i> AI Question Generation
+                  via Gemini
+                </div>
+                <div
+                  style="font-size:0.8rem;color:var(--text-dim);padding:8px;border-left:2px solid var(--accent2);background:rgba(124,58,237,0.03);display:flex;align-items:center;gap:8px;">
+                  <i data-lucide="eye" style="width:14px;height:14px;color:var(--accent2);"></i> Real-time face mesh &
+                  gaze tracking
+                </div>
+                <div
+                  style="font-size:0.8rem;color:var(--text-dim);padding:8px;border-left:2px solid var(--accent3);background:rgba(6,214,160,0.03);display:flex;align-items:center;gap:8px;">
+                  <i data-lucide="bar-chart" style="width:14px;height:14px;color:var(--accent3);"></i> Bulk CSV import +
+                  PDF reports
+                </div>
+                <div
+                  style="font-size:0.8rem;color:var(--text-dim);padding:8px;border-left:2px solid #f59e0b;background:rgba(245,158,11,0.03);display:flex;align-items:center;gap:8px;">
+                  <i data-lucide="lock" style="width:14px;height:14px;color:#f59e0b;"></i> Phone detection via YOLOv8
+                </div>
+                <div
+                  style="font-size:0.8rem;color:var(--text-dim);padding:8px;border-left:2px solid var(--accent);background:rgba(99,179,237,0.03);display:flex;align-items:center;gap:8px;">
+                  <i data-lucide="volume-2" style="width:14px;height:14px;color:var(--accent);"></i> Edge TTS verbal
+                  questions
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="desktop ai">
+          <div class="project-status status-ongoing">Ongoing</div>
+          <div class="project-icon"><i data-lucide="monitor"></i></div>
+          <div class="project-title">Project VEGA</div>
+          <div class="project-desc">Windows-first desktop AI assistant with Electron + React frontend and Python FastAPI
+            backend. Real-time voice, Gemini Live API, n8n workflows, wake word detection.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Electron</span><span class="stack-tag">React</span><span
+              class="stack-tag">FastAPI</span><span class="stack-tag">Gemini Live</span><span
+              class="stack-tag">n8n</span><span class="stack-tag">Socket.IO</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="desktop backend">
+          <div class="project-status status-ongoing">Ongoing</div>
+          <div class="project-icon"><i data-lucide="zap"></i></div>
+          <div class="project-title">RoboSwift</div>
+          <div class="project-desc">High-performance Tauri 2 desktop GUI for Windows robocopy - live telemetry HUD,
+            real-time stdout parsing in Rust, PID-level process cancellation, 'Kinetic Void' dark theme.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Tauri 2</span><span class="stack-tag">React 19</span><span
+              class="stack-tag">Rust</span><span class="stack-tag">TypeScript</span><span class="stack-tag">Tailwind
+              4</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/RoboSwift" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="backend">
+          <div class="project-status status-ongoing">Ongoing</div>
+          <div class="project-icon"><i data-lucide="globe"></i></div>
+          <div class="project-title">Project-T (Universal Tunnel Server)</div>
+          <div class="project-desc">Universal tunneling system supporting HTTP/1.1, HTTP/2, and raw TCP. Distributed
+            FastAPI server + Tauri desktop client, SQLAlchemy connection tracking.</div>
+          <div class="project-stack">
+            <span class="stack-tag">FastAPI</span><span class="stack-tag">Python</span><span
+              class="stack-tag">Tauri</span><span class="stack-tag">Rust</span><span
+              class="stack-tag">Hypercorn</span><span class="stack-tag">SQLAlchemy</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/Project-T" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="ai desktop">
+          <div class="project-status status-completed">Completed</div>
+          <div class="project-icon"><i data-lucide="search"></i></div>
+          <div class="project-title">Axon File Manager</div>
+          <div class="project-desc">Desktop file manager with 4-stage Neural Search: BM25 + Vector (Qdrant), RRF fusion,
+            HyDE query expansion, cross-encoder re-ranking, KeyBERT extraction.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span><span class="stack-tag">Qdrant</span><span
+              class="stack-tag">BAAI/bge-base</span><span class="stack-tag">Flet</span><span
+              class="stack-tag">KeyBERT</span><span class="stack-tag">HyDE</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="ai backend">
+          <div class="project-status status-completed">Completed</div>
+          <div class="project-icon"><i data-lucide="package"></i></div>
+          <div class="project-title">VenvDrop</div>
+          <div class="project-desc">Zero-dependency CLI to bundle massive Python envs into portable self-verifying
+            archives. AirDrop-style wireless LAN transfer via UDP multicast, SHA-256 integrity.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Python stdlib</span><span class="stack-tag">UDP Multicast</span><span
+              class="stack-tag">AST Analysis</span><span class="stack-tag">SHA-256</span><span
+              class="stack-tag">PyPI</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/venvdrop" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+            <a href="https://pypi.org/project/venvdrop/" target="_blank" class="project-link"><i
+                data-lucide="external-link" style="width:12px;height:12px;"></i> PyPI</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="ai fullstack">
+          <div class="project-status status-ongoing">Ongoing</div>
+          <div class="project-icon"><i data-lucide="mic"></i></div>
+          <div class="project-title">AI-Interviewer</div>
+          <div class="project-desc">Autonomous AI platform conducting live video interviews with WebRTC + Django
+            Channels signaling, Whisper transcription, DeepFace proctoring, Recruiter Dashboard.</div>
+          <div class="project-stack">
+            <span class="stack-tag">FastAPI</span><span class="stack-tag">Django Channels</span><span
+              class="stack-tag">WebRTC</span><span class="stack-tag">Gemini</span><span
+              class="stack-tag">Whisper</span><span class="stack-tag">DeepFace</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/AI-Interviewer" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="fullstack">
+          <div class="project-status status-completed">Completed</div>
+          <div class="project-icon"><i data-lucide="book"></i></div>
+          <div class="project-title">DevCheatHub</div>
+          <div class="project-desc">Command-palette (⌘K) searchable dev cheatsheet platform. JSON-driven content,
+            hierarchical organization, contribution pipeline with approval workflow.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Django</span><span class="stack-tag">MySQL</span><span
+              class="stack-tag">jQuery</span><span class="stack-tag">Anime.js</span><span
+              class="stack-tag">Railway</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/devcheathub" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="ai">
+          <div class="project-status status-completed">Completed</div>
+          <div class="project-icon"><i data-lucide="utensils"></i></div>
+          <div class="project-title">Nutri-Scan</div>
+          <div class="project-desc">AI-powered nutrition tracker with Gemini Vision for instant food scanning, medical
+            PDF analyzer, personalized diet planning, Raspberry Pi hardware integration.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Flutter</span><span class="stack-tag">Gemini Vision</span><span
+              class="stack-tag">Firebase</span><span class="stack-tag">Flask</span><span class="stack-tag">Raspberry
+              Pi</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/Nutri-Scan" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+        <div class="project-card reveal" data-category="ai fullstack">
+          <div class="project-status status-completed">Completed</div>
+          <div class="project-icon"><i data-lucide="users"></i></div>
+          <div class="project-title">ATS (AI Tracking System)</div>
+          <div class="project-desc">Django ATS with AI resume parsing (Gemini/Ollama) and biometric face-recognition
+            authentication. Integrated scoring engine and candidate management.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Django</span><span class="stack-tag">Gemini</span><span
+              class="stack-tag">Face Recognition</span><span class="stack-tag">MySQL</span><span
+              class="stack-tag">Tailwind</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/ATS" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="ai">
+          <div class="project-status status-completed">Completed</div>
+          <div class="project-icon"><i data-lucide="sparkles"></i></div>
+          <div class="project-title">Prompt Polish</div>
+          <div class="project-desc">Chrome Extension that transforms raw ideas into engineer-grade prompts using
+            Gemini. Zero-backend, privacy-focused BYOK architecture.</div>
+          <div class="project-stack">
+            <span class="stack-tag">JavaScript</span><span class="stack-tag">Gemini API</span><span
+              class="stack-tag">Manifest V3</span><span class="stack-tag">HTML5/CSS3</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/prompt-polish" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="ai">
+          <div class="project-status status-completed">Completed</div>
+          <div class="project-icon"><i data-lucide="git-commit"></i></div>
+          <div class="project-title">Repo-Scribe</div>
+          <div class="project-desc">AI-powered VS Code extension for context-aware commit messages using Gemini and RAG
+            on project documentation. Smart batching for large diffs.</div>
+          <div class="project-stack">
+            <span class="stack-tag">TypeScript</span><span class="stack-tag">VS Code API</span><span
+              class="stack-tag">Gemini</span><span class="stack-tag">Node.js</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/repo-scribe" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="ai">
+          <div class="project-status status-completed">Completed</div>
+          <div class="project-icon"><i data-lucide="shield-alert"></i></div>
+          <div class="project-title">Glove & Burger Detection</div>
+          <div class="project-desc">Computer vision system using YOLOv8 to detect hygiene compliance (gloves) during
+            food preparation. Real-time inference with CUDA acceleration.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span><span class="stack-tag">YOLOv8</span><span
+              class="stack-tag">OpenCV</span><span class="stack-tag">PyTorch</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/glove_burger_detection" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="fullstack">
+          <div class="project-status status-ongoing">Ongoing</div>
+          <div class="project-icon"><i data-lucide="navigation"></i></div>
+          <div class="project-title">Route Memory</div>
+          <div class="project-desc">High-precision GPS tracking app with 'Ghost Path' retracing. Smart route
+            simplification (RDP algorithm) and Firebase cloud sync.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Flutter</span><span class="stack-tag">Firebase</span><span
+              class="stack-tag">Riverpod</span><span class="stack-tag">OSM</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/route-memory" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="ai">
+          <div class="project-status status-completed">Completed</div>
+          <div class="project-icon"><i data-lucide="car"></i></div>
+          <div class="project-title">ANPR System</div>
+          <div class="project-desc">Real-time license plate recognition using YOLOv10 and PaddleOCR. Automated vehicle
+            logging via Firebase Cloud Firestore.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span><span class="stack-tag">YOLOv10</span><span
+              class="stack-tag">PaddleOCR</span><span class="stack-tag">Firebase</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/Automatic-Number-Plate-Recognition" target="_blank"
+              class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="desktop">
+          <div class="project-status status-completed">Completed</div>
+          <div class="project-icon"><i data-lucide="lock"></i></div>
+          <div class="project-title">Security Policy Tool</div>
+          <div class="project-desc">Governance platform for security policy lifecycle management. Features version
+            tracking, SHA-256 encryption, and MFA via email.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span><span class="stack-tag">Tkinter</span><span
+              class="stack-tag">SQLite</span><span class="stack-tag">SHA-256</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/secuirty-policy-managemnet" target="_blank"
+              class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="fullstack">
+          <div class="project-status status-completed">Completed</div>
+          <div class="project-icon"><i data-lucide="graduation-cap"></i></div>
+          <div class="project-title">SkillApt</div>
+          <div class="project-desc">Aptitude preparation hub with hybrid MongoDB/Firebase persistence. Features
+            discussion forums and automated performance reports.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Node.js</span><span class="stack-tag">React</span><span
+              class="stack-tag">MongoDB</span><span class="stack-tag">Firebase</span><span class="stack-tag">JWT</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sasidharakurathi/SkillApt" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                </path>
+              </svg>
+              <i data-lucide="github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="certifications">
+    <div class="section-label reveal">Achievements</div>
+    <div class="section-title reveal">Certifications</div>
+
+    <div class="certs-grid">
+      <div class="cert-card reveal">
+        <div class="cert-icon"><i data-lucide="cloud"></i></div>
+        <div>
+          <div class="cert-name">AWS Cloud: Builder Labs</div>
+          <div class="cert-issuer">Amazon Web Services (AWS)</div>
+          <div class="cert-year">2025</div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><i data-lucide="code-2"></i></div>
+        <div>
+          <div class="cert-name">Python Programming</div>
+          <div class="cert-issuer">Code Tantra</div>
+          <div class="cert-year">2024</div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><i data-lucide="bot"></i></div>
+        <div>
+          <div class="cert-name">Eyantra Robotics Competition</div>
+          <div class="cert-issuer">IIT Bombay</div>
+          <div class="cert-year">2024</div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><i data-lucide="trophy"></i></div>
+        <div>
+          <div class="cert-name">Cyberace Hackathon - Excellence</div>
+          <div class="cert-issuer">Supraja Technologies</div>
+          <div class="cert-year">2024</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <div id="contact" style="padding:100px 0;background:var(--surface);border-top:1px solid var(--border);">
+    <div style="max-width:1200px;margin:0 auto;padding:0 48px;">
+      <div class="section-label reveal">Let's Connect</div>
+      <div class="section-title reveal">Get in touch &<br>ask me anything.</div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info">
+            <h3>Open to full-time opportunities, collaborations, and interesting problems.</h3>
+            <div class="contact-links">
+              <a href="mailto:akurathisasidhar4@gmail.com" class="contact-link-item">
+                <span class="contact-link-label">
+                  <i data-lucide="mail" class="info-icon-contact"></i>
+                  Email
+                </span>
+                <span class="contact-link-value">akurathisasidhar4@gmail.com</span>
+              </a>
+              <a href="https://github.com/sasidharakurathi" target="_blank" class="contact-link-item">
+                <span class="contact-link-label">
+                  <svg viewBox="0 0 24 24" fill="currentColor" class="info-icon-contact">
+                    <path
+                      d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                    </path>
+                  </svg>
+                  GitHub
+                </span>
+                <span class="contact-link-value">sasidharakurathi</span>
+              </a>
+              <a href="https://www.linkedin.com/in/sasidhar-akurathi" target="_blank" class="contact-link-item">
+                <span class="contact-link-label">
+                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="info-icon-contact"
+                    style="opacity: 1;">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <circle cx="24" cy="24" r="20" fill="#0077B5"></circle>
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M18.7747 14.2839C18.7747 15.529 17.8267 16.5366 16.3442 16.5366C14.9194 16.5366 13.9713 15.529 14.0007 14.2839C13.9713 12.9783 14.9193 12 16.3726 12C17.8267 12 18.7463 12.9783 18.7747 14.2839ZM14.1199 32.8191V18.3162H18.6271V32.8181H14.1199V32.8191Z"
+                        fill="white"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M22.2393 22.9446C22.2393 21.1357 22.1797 19.5935 22.1201 18.3182H26.0351L26.2432 20.305H26.3322C26.9254 19.3854 28.4079 17.9927 30.8101 17.9927C33.7752 17.9927 35.9995 19.9502 35.9995 24.219V32.821H31.4922V24.7838C31.4922 22.9144 30.8404 21.6399 29.2093 21.6399C27.9633 21.6399 27.2224 22.4999 26.9263 23.3297C26.8071 23.6268 26.7484 24.0412 26.7484 24.4574V32.821H22.2411V22.9446H22.2393Z"
+                        fill="white"></path>
+                    </g>
+                  </svg>
+                  LinkedIn
+                </span>
+                <span class="contact-link-value">sasidhar-akurathi</span>
+              </a>
+              <a href="https://sasidharakurathi-portfolio.vercel.app/" target="_blank" class="contact-link-item">
+                <span class="contact-link-label">
+                  <i data-lucide="globe" class="info-icon-contact"></i>
+                  Portfolio
+                </span>
+                <span class="contact-link-value">sasidharakurathi-portfolio.vercel.app</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="ai-console-card-wrapper reveal">
+          <div class="ai-console-card">
+            <div class="card-glow"></div>
+            <div class="card-header">
+              <div class="header-icon"><i data-lucide="terminal"></i></div>
+              <div class="header-info">
+                <div class="card-title">Interactive AI Console</div>
+                <div class="card-tag">Full Experience</div>
+              </div>
+            </div>
+            <div class="card-content">
+              <p>I've developed a specialized full-screen AI environment. Ask questions about my expertise, explore
+                projects, or use terminal commands to interact with my RAG-powered digital clone.</p>
+            </div>
+            <a href="ai_console.html" class="btn-primary launch-btn">
+              Open AI Console <i data-lucide="external-link" style="width:14px;height:14px;margin-left:8px;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <footer>
+    <div class="footer-left">
+      Built by <span>Sasidhar Akurathi</span> · 2026 · Always helping the people in need.
+    </div>
+    <div class="footer-right">
+      B.Tech CSE · PSCMR · 22KT1A0595
+    </div>
+  </footer>
+
+  <script src="js/portfolio.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="js/neural-background.js"></script>
 </body>
 
 </html>
