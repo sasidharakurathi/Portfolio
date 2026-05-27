@@ -1,4 +1,4 @@
-# Akurathi Sasidhar - Portfolio Website
+# Akurathi Sasidhar - Portfolio Website 
 
 A modern, responsive personal portfolio website showcasing the skills, projects, and experience of Akurathi Sasidhar, a final-year Computer Science student specializing in backend development, real-time systems, and AI-driven web applications.
 
